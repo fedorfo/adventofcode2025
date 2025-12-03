@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);CA1305;CA2201</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="morelinq" Version="4.3.0"/>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\*.in"/>
+        <EmbeddedResource Include="Resources\*.out"/>
+        <EmbeddedResource Include="Resources\*.txt"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="output\"/>
+    </ItemGroup>
+</Project>
