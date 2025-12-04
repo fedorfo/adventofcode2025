@@ -9,9 +9,10 @@ public class Day03 : PuzzleBase
         {
             var d = bank[i - 1] - '0';
             for (var j = 1; j <= len; j++)
-                for (var k = 0; k < i; k++)
-                    dp[i, j] = Math.Max(dp[i, j], dp[k, j - 1] * 10 + d);
+            for (var k = 0; k < i; k++)
+                dp[i, j] = Math.Max(dp[i, j], dp[k, j - 1] * 10 + d);
         }
+
         return Enumerable.Range(0, bank.Length + 1).Max(i => dp[i, len]);
     }
 
