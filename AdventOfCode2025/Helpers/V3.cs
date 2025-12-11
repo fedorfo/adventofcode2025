@@ -2,7 +2,7 @@ using static System.Math;
 
 namespace AdventOfCode2025.Helpers;
 
-public record V3(int X, int Y, int Z)
+public record V3(long X, long Y, long Z)
 {
     public static V3 operator +(V3 l, V3 r)
     {
@@ -14,12 +14,12 @@ public record V3(int X, int Y, int Z)
         return new V3(l.X - r.X, l.Y - r.Y, l.Z - r.Z);
     }
 
-    public int ManhattanLength()
+    public long ManhattanLength()
     {
         return Abs(X) + Abs(Y) + Abs(Z);
     }
 
-    public int ChebyshevLength()
+    public long ChebyshevLength()
     {
         return Helpers.Max(Abs(X), Abs(Y), Abs(Z));
     }
@@ -40,7 +40,7 @@ public record V3(int X, int Y, int Z)
         var defaultSeparators = new[] { ",", " " };
         var args = value
             .Split(separators ?? defaultSeparators, StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
+            .Select(long.Parse)
             .ToList();
         return new V3(args[0], args[1], args[2]);
     }

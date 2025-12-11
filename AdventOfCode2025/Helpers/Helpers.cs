@@ -7,6 +7,11 @@ public static class Helpers
         return values.Max();
     }
 
+    public static long Max(params long[] values)
+    {
+        return values.Max();
+    }
+
     public static long LongPow(long x, int y)
     {
         long result = 1;
