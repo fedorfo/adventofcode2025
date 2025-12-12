@@ -6,7 +6,7 @@ public class Day08 : PuzzleBase
 {
     public override void Solve()
     {
-        var boxes = ReadBlockLines().Select(x => V3.Parse(x, [","])).ToList();
+        var boxes = ReadBlockLines().Select(x => V3.Parse(x)).ToList();
         var n = boxes.Count;
 
         var pairs = new List<(int x, int y, long dist)>();

@@ -35,13 +35,9 @@ public record V3(long X, long Y, long Z)
         }
     }
 
-    public static V3 Parse(string value, string[]? separators = null)
+    public static V3 Parse(string value, params string[] separators)
     {
-        var defaultSeparators = new[] { ",", " " };
-        var args = value
-            .Split(separators ?? defaultSeparators, StringSplitOptions.RemoveEmptyEntries)
-            .Select(long.Parse)
-            .ToList();
+        var args = value.ExtractTokens(separators).Select(long.Parse).ToList();
         return new V3(args[0], args[1], args[2]);
     }
 }

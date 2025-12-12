@@ -43,10 +43,9 @@ public static class Helpers
         return result;
     }
 
-    public static IEnumerable<string> ExtractTokens(this string line, params char[] delimiters)
+    public static IEnumerable<string> ExtractTokens(this string line, params string[] delimiters)
     {
-        if (delimiters.Length == 0) delimiters = new[] { ' ' };
-
+        if (delimiters.Length == 0) delimiters = [",", " "];
         return line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
     }
 

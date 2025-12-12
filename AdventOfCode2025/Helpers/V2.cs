@@ -2,7 +2,7 @@ using static System.Math;
 
 namespace AdventOfCode2025.Helpers;
 
-public record V2(int X, int Y)
+public record V2(long X, long Y)
 {
     public static readonly V2 Zero = new(0, 0);
 
@@ -23,12 +23,12 @@ public record V2(int X, int Y)
         return new V2(l.X - r.X, l.Y - r.Y);
     }
 
-    public static V2 operator /(V2 p, int l)
+    public static V2 operator /(V2 p, long l)
     {
         return new V2(p.X / l, p.Y / l);
     }
 
-    public static V2 operator *(V2 p, int l)
+    public static V2 operator *(V2 p, long l)
     {
         return new V2(p.X * l, p.Y * l);
     }
@@ -53,12 +53,12 @@ public record V2(int X, int Y)
         return r < l;
     }
 
-    public int ManhattanLength()
+    public long ManhattanLength()
     {
         return Abs(X) + Abs(Y);
     }
 
-    public int ChebyshevLength()
+    public long ChebyshevLength()
     {
         return Max(Abs(X), Abs(Y));
     }
@@ -96,5 +96,11 @@ public record V2(int X, int Y)
     public override string ToString()
     {
         return $"({X},{Y})";
+    }
+
+    public static V2 Parse(string value, params string[] separators)
+    {
+        var args = value.ExtractTokens(separators).Select(long.Parse).ToList();
+        return new V2(args[0], args[1]);
     }
 }
